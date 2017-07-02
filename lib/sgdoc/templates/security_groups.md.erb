@@ -1,0 +1,31 @@
+<% security_groups_by_vpc_id.each do |vpc_id, security_groups| %>
+# Security Groups (<%= vpc_id %>)
+
+<% security_groups.each do |sg| %>
+## <%= sg.group_name %>
+
+| Group ID | Description | Tags |
+| ---- | ---- | ---- |
+| <%= sg.group_id %> | <%= sg.description %> | <%= sg.tags_to_json %> |
+
+### Inbound
+
+| Protocol | Port | Source | _Description |
+| ---- | ---- | ---- | ---- |
+<% sg.inbound_permissions.each do |iperm| %>
+| <%= iperm.protocol %> | <%= iperm.port %> | <%= iperm.target %> | <%= iperm.doc_description %> |
+<% end %>
+
+### Outbound
+
+| Protocol | Port | Destination | _Description |
+| ---- | ---- | ---- | ---- |
+<% sg.outbound_permissions.each do |operm| %>
+| <%= operm.protocol %> | <%= operm.port %> | <%= operm.target %> | <%= operm.doc_description %> |
+<% end %>
+
+<% end %>
+## Instances references
+EC2との関連付けを表示する
+
+<% end %>
