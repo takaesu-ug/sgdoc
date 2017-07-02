@@ -12,16 +12,20 @@
 
 | Protocol | Port | Source | _Description |
 | ---- | ---- | ---- | ---- |
-<% sg.inbound_permissions.each do |iperm| %>
+<% if sg.inbound_permissions.each do |iperm| %>
 | <%= iperm.protocol %> | <%= iperm.port %> | <%= iperm.target %> | <%= iperm.doc_description %> |
+<% end.empty? %>
+| | | | |
 <% end %>
 
 ### Outbound
 
 | Protocol | Port | Destination | _Description |
 | ---- | ---- | ---- | ---- |
-<% sg.outbound_permissions.each do |operm| %>
+<% if sg.outbound_permissions.each do |operm| %>
 | <%= operm.protocol %> | <%= operm.port %> | <%= operm.target %> | <%= operm.doc_description %> |
+<% end.empty? %>
+| | | | |
 <% end %>
 
 <% end %>
