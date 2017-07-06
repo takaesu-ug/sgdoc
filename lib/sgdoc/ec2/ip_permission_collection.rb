@@ -1,5 +1,5 @@
 module Sgdoc
-  module Wrappers
+  module EC2
     class IpPermissionCollection
       include Enumerable
 
