@@ -2,8 +2,4 @@
 
 require 'sgdoc'
 
-# TODO: 2つは消す
-require 'pry'
-require 'tapp-awesome_print'
-
 Sgdoc::Cli.run(ARGV)
