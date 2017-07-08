@@ -11,18 +11,27 @@ SGを参照しているサービスはEC2,RDS,ELBを対象とする(その他は
 
 ## やりたいこと
 
-- [ ] aws-sdkで必要な情報を取得してハッシュ化
-- [ ] Erubisに渡してerbテンプレートで展開する
+- Erubisに渡してerbテンプレートで展開する
     - ドキュメントにはSecurityGroupの内容
     - 関連付けの情報(EC2, ELB, EC2)
-- [ ] SecurityGroupのIn,Outのポリシーにコメントを入れれるようにしたい(別ファイルでポートのコメント管理。定型文はYamlで管理(0.0.0.0/0など))
-
+- SecurityGroupのIn,Outのポリシーにコメントを入れれるようにしたい(別ファイルでポートのコメント管理。定型文はYamlで管理(0.0.0.0/0など))
 
 ### Credentialは次の順番で有効になる
-- (これは設定しないのでいらないかな) `:access_key_id` , `:secret_access_key` , and `:session_token` options
-- `ENV['AWS_ACCESS_KEY_ID']`, `ENV['AWS_SECRET_ACCESS_KEY']`
+- (未) `:access_key_id` , `:secret_access_key` , and `:session_token` options
+- `ENV['AWS_REGION']`, `ENV['AWS_ACCESS_KEY_ID']`, `ENV['AWS_SECRET_ACCESS_KEY']`
 - HOME/.aws/credentials shared credentials file
 - EC2 instance profile credentials See Plugins::RequestSigner for more details.
+
+
+### 実行方法
+
+```
+shared credentials file(HOME/.aws/credentials) に設定がある場合
+$ sgdoc > sgdoc.md
+
+環境変数を設定して実行
+$ AWS_REGION=ap-northeast-1 AWS_ACCESS_KEY_ID=[ACCESS_KEY] AWS_SECRET_ACCESS_KEY=[SECRET_ACCESS_KEY] sgdoc > sgdoc.md
+```
 
 ## Requirements
 
