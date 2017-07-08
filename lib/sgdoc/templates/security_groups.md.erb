@@ -30,6 +30,15 @@
 
 <% end %>
 ## Instances references
-EC2との関連付けを表示する
+
+<% if instances = instances_by_vpc_id[vpc_id] %>
+| Instance Name | Instance ID | Security Groups |
+| ---- | ---- | ---- |
+<%   instances.each do |instance| %>
+| <%= instance.name %> | <%= instance.instance_id %> | <%= instance.group_names_to_s %> |
+<%   end %>
+<% else %>
+| | | |
+<% end %>
 
 <% end %>
