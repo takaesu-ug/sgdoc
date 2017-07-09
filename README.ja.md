@@ -31,6 +31,10 @@ $ sgdoc > sgdoc.md
 
 環境変数を設定して実行
 $ AWS_REGION=ap-northeast-1 AWS_ACCESS_KEY_ID=[ACCESS_KEY] AWS_SECRET_ACCESS_KEY=[SECRET_ACCESS_KEY] sgdoc > sgdoc.md
+
+Dockerで実行する
+$ docker build . -f Dockerfile -t yusabana/sgdoc
+$ docker run --rm -e AWS_REGION=ap-northeast-1 -e AWS_ACCESS_KEY_ID=[ACCESS_KEY] -e AWS_SECRET_ACCESS_KEY=[SECRET_ACCESS_KEY] yusabana/sgdoc sgdoc
 ```
 
 ## Requirements
