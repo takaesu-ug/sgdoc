@@ -4,7 +4,7 @@ module Sgdoc
       ALL_STRING = 'all'
 
       def initialize(ip_permission:, ip_range: nil, user_id_group_pair: nil)
-        raise StandardError 'Unknown pattern of IpPermission, at least must need ip_range or user_id_group_pair' if ip_range.nil? && user_id_group_pair.nil?
+        raise StandardError, 'Unknown pattern of IpPermission, at least must need ip_range or user_id_group_pair' if ip_range.nil? && user_id_group_pair.nil?
 
         @ip_range = ip_range
         @user_id_group_pair = user_id_group_pair

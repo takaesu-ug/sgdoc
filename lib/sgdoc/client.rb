@@ -10,7 +10,7 @@ module Sgdoc
 
     def security_groups_by_vpc_id
       describe_security_groups = @ec2_client.describe_security_groups.security_groups
-      security_groups ||= describe_security_groups.map { |sg| Sgdoc::EC2::SecurityGroup.new(sg) }
+      security_groups = describe_security_groups.map { |sg| Sgdoc::EC2::SecurityGroup.new(sg) }
 
       # vpcIDのキーをvpcのオブジェクトにしても良い
       security_groups.group_by { |sg| sg.vpc_id }
