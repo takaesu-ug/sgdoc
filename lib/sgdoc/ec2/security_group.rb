@@ -14,7 +14,7 @@ module Sgdoc
       end
 
       def tags_to_json
-        return '-' if tags.empty?
+        return ' ' if tags.empty?
 
         tags.each_with_object({}) do |tag, memo|
           memo[tag.key] = tag.value

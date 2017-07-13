@@ -38,7 +38,7 @@ module Sgdoc
 
       def doc_description
         # TODO desriptionを出力する使用を考える(IPベースの設定ファイルでいいかも)
-        '-'
+        ' '
       end
     end
   end

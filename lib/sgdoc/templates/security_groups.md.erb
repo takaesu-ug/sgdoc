@@ -10,7 +10,7 @@
 
 ### Inbound
 
-| Protocol | Port | Source | _Description |
+| Protocol | Port | Source | %Description |
 | ---- | ---- | ---- | ---- |
 <% if sg.inbound_permissions.each do |iperm| %>
 | <%= iperm.protocol %> | <%= iperm.port %> | <%= iperm.target %> | <%= iperm.doc_description %> |
@@ -20,7 +20,7 @@
 
 ### Outbound
 
-| Protocol | Port | Destination | _Description |
+| Protocol | Port | Destination | %Description |
 | ---- | ---- | ---- | ---- |
 <% if sg.outbound_permissions.each do |operm| %>
 | <%= operm.protocol %> | <%= operm.port %> | <%= operm.target %> | <%= operm.doc_description %> |
